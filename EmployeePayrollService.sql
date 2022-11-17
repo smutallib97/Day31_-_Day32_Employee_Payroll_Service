@@ -19,3 +19,7 @@ select avg(salary) from payroll_service.employee_payroll;
 select min(salary) from payroll_service.employee_payroll;
 select max(salary) from payroll_service.employee_payroll;
 select count(salary) from payroll_service.employee_payroll;
+alter table payroll_service.employee_payroll add phone_number varchar(25) after name;
+alter table payroll_service.employee_payroll add address varchar(100) DEFAULT 'TBD' after phone_number;
+alter table payroll_service.employee_payroll add department varchar(150) not null after address;
+select * from payroll_service.employee_payroll;
