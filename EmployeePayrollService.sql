@@ -8,7 +8,7 @@ insert into employee_payroll (name, salary, start) values ( 'bill',100000.00,'20
 select * from employee_payroll;
 select salary from employee_payroll where name='bill'; 
 select * from employee_payroll where start between CAST('2018-01-01' AS DATE)AND DATE(NOW());
-alter table employee_payroll add gender char(1) after name; 
+alter table employee_payroll add gender char(1) after name;
 update payroll_service.employee_payroll set gender = 'M' where name = 'bill';
 update payroll_service.employee_payroll set gender = 'F' where name = 'terisa';
 insert into payroll_service.employee_payroll (name, gender, salary, start) values ( 'Ullas','M',700000.00,'2018-01-03'),
@@ -27,4 +27,10 @@ ALTER table payroll_service.employee_payroll rename column salary to basic_pay;
 ALTER table payroll_service.employee_payroll add deductions int not null after basic_pay; 
 ALTER table payroll_service.employee_payroll add taxablePay int not null after deductions;
 ALTER table payroll_service.employee_payroll add netPay int not null after taxablePay;
+ALTER table payroll_service.employee_payroll add incomeTax int not null after netPay;
 select * from payroll_service.employee_payroll;
+insert into payroll_service.employee_payroll(id, name, phone_number, address, department, gender, basic_pay, deductions, taxablePay, netPay, incomeTax, start) values 
+(121,'terisa','4512474562','TBD','Marketing','F',3000000.00,1000000.00,3000000.00,500000.00,50000.00,'2019-11-13');
+insert into payroll_service.employee_payroll(id, name, phone_number, address, department, gender, basic_pay, deductions, taxablePay, netPay, incomeTax, start) values 
+(122,'terisa','4512474562','TBD','Sales','F',2000000.00,5000000.00,300000.00,400000.00,50000.00,'2019-11-13');
+SELECT * FROM payroll_service.employee_payroll;
