@@ -34,3 +34,10 @@ insert into payroll_service.employee_payroll(id, name, phone_number, address, de
 insert into payroll_service.employee_payroll(id, name, phone_number, address, department, gender, basic_pay, deductions, taxablePay, netPay, incomeTax, start) values 
 (122,'terisa','4512474562','TBD','Sales','F',2000000.00,5000000.00,300000.00,400000.00,50000.00,'2019-11-13');
 SELECT * FROM payroll_service.employee_payroll;
+alter table payroll_service.employee_payroll rename COLUMN id to empid;
+insert into payroll_service.employee_payroll(empid, name, phone_number, address, department, gender, basic_pay, deductions, taxablePay, netPay, incomeTax, start) values
+(101,'Nitish','9815487896','TBD','IT','M',3000000.00,1000.00,2400.00,2800000.00,15000.00,'2022-11-13'),
+(102,'Ullas','7845123698','TBD','IT','M',2000000.00,2000.00,2400.00,1800000.00,15000.00,'2022-11-13');
+create table payroll_service.employee_department (empid int NOT NULL, department_id VARCHAR(30));
+insert into payroll_service.employee_department (empid, department_id) values (121, 'Marketing'),(122,'Sales'),(101,'IT'),(102,'IT');
+SELECT * FROM payroll_service.employee_department;
