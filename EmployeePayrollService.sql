@@ -41,3 +41,12 @@ insert into payroll_service.employee_payroll(empid, name, phone_number, address,
 create table payroll_service.employee_department (empid int NOT NULL, department_id VARCHAR(30));
 insert into payroll_service.employee_department (empid, department_id) values (121, 'Marketing'),(122,'Sales'),(101,'IT'),(102,'IT');
 SELECT * FROM payroll_service.employee_department;
+SELECT * FROM payroll_service.employee_payroll;
+select basic_pay from payroll_service.employee_payroll where name='bill';
+select * from payroll_service.employee_payroll where start between CAST('2018-01-01' AS DATE)AND DATE(NOW());
+select sum(basic_pay) from payroll_service.employee_payroll where gender = 'F' group by gender;
+select sum(basic_pay) from payroll_service.employee_payroll where gender = 'M' group by gender; 
+select avg(netpay) from payroll_service.employee_payroll;
+select min(netpay) from payroll_service.employee_payroll;
+select max(netpay) from payroll_service.employee_payroll;
+select count(basic_pay) from payroll_service.employee_payroll;
